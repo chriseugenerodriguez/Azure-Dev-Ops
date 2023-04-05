@@ -1,0 +1,11 @@
+ul,
+ol {
+  margin: 0px;
+  padding: 0px;
+}
+
+ol {
+  display: list-item;
+  list-style-position: inside;
+  margin-bottom: 5px;
+}
