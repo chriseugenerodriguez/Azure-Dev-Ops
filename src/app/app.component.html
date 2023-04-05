@@ -30,7 +30,6 @@
           <table
             [formGroup]="workItemsForm"
             class="table align-items-center table-flush"
-            *ngIf="getWorkItems().length"
           >
             <thead class="thead-light">
               <tr>
@@ -41,24 +40,40 @@
               </tr>
             </thead>
             <tbody formArrayName="workItems">
-              <tr
-                *ngFor="let d of getWorkItems(); let i = index"
-                [formGroupName]="i"
-              >
-                <th scope="row">{{ d.id }}</th>
-                <th scope="row">
-                  <input class="text-sm" [value]="d.title" />
-                </th>
-                <th scope="row">
-                  <div class="status">
-                    <span *ngIf="d.state == 'To Do'" class="circle grey"></span>
-                    <span *ngIf="d.state == 'Doing'" class="circle blue"></span>
-                    <span *ngIf="d.state == 'Done'" class="circle green"></span>
-                    {{ d.state }}
-                  </div>
-                </th>
-                <th scope="row">{{ d.type }}</th>
-              </tr>
+              <ng-container *ngIf="getWorkItems().length; else noResults">
+                <tr
+                  *ngFor="let d of getWorkItems(); let i = index"
+                  [formGroupName]="i"
+                >
+                  <th scope="row">{{ d.id }}</th>
+                  <th scope="row">
+                    <input class="text-sm" [value]="d.title" />
+                  </th>
+                  <th scope="row">
+                    <div class="status">
+                      <span
+                        *ngIf="d.state == 'To Do'"
+                        class="circle grey"
+                      ></span>
+                      <span
+                        *ngIf="d.state == 'Doing'"
+                        class="circle blue"
+                      ></span>
+                      <span
+                        *ngIf="d.state == 'Done'"
+                        class="circle green"
+                      ></span>
+                      {{ d.state }}
+                    </div>
+                  </th>
+                  <th scope="row">{{ d.type }}</th>
+                </tr>
+              </ng-container>
+              <ng-template #noResults>
+                <tr>
+                  <td colspan="4" class="text-center">No Results</td>
+                </tr>
+              </ng-template>
             </tbody>
           </table>
         </div>

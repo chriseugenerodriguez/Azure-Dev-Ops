@@ -8,7 +8,7 @@ export const environment = {
   azure: {
     org: 'christophereugenerodriguez',
     project: 'assignment',
-    token: 'xucfhfmldb3v3stetylhsdst5lgfygbcn4ip6d4vmfdjvwhzgo5q'
+    token: '7mlfa5gqyl7tfv4btkthl3m2g2is2vbvfrn7lp6j2dlqiqblyhva'
   }
 };
 
