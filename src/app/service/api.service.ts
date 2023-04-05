@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { WorkItem } from 'azure-devops-node-api/interfaces/WorkItemTrackingInterfaces';
 import { map, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  private org = 'christophereugenerodriguez';
-  private project = 'assignment';
-  private token = 'r7ycx7hvdfy2gg7d7xhnd3vo3w7gjha2ovpxidaerfacb7a7omiq';
+  private org = environment.azure.org;
+  private project = environment.azure.project;
+  private token = environment.azure.token;
   private apiVersion = '7.0';
   private url = `https://dev.azure.com/${this.org}/${this.project}/_apis/wit/wiql?api-version=${this.apiVersion}`;
   private headers = new HttpHeaders({

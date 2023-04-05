@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  azure: {
+    org: 'christophereugenerodriguez',
+    project: 'assignment',
+    token: 'r7ycx7hvdfy2gg7d7xhnd3vo3w7gjha2ovpxidaerfacb7a7omiq'
+  }
 };
 
 /*
